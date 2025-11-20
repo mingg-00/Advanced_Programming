@@ -38,6 +38,6 @@ def calculate_average_price(total_cost: float, total_shares: int) -> float:
 def apply_fx(amount: float, rate: float, invert: bool = False) -> float:
     if rate == 0:
         return 0.0
-    return amount / (rate/1000) if invert else amount * (rate/1000)
+    return amount / rate if invert else amount * rate
 
 

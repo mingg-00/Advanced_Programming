@@ -26,12 +26,6 @@ class KiwoomUnavailableError(RuntimeError):
 
 
 def _ensure_pykiwoom_available() -> None:
-    # Allow forcing fallback mode via environment variable to avoid blocking Kiwoom login
-    # during headless or development runs.
-    if os.getenv("KIWOOM_DISABLE", "").strip() in {"1", "true", "True"}:
-        raise KiwoomUnavailableError(
-            "Kiwoom usage disabled by KIWOOM_DISABLE environment variable."
-        )
     if os.name != "nt":
         raise KiwoomUnavailableError(
             "Kiwoom OpenAPI+ is only supported on Windows. "
